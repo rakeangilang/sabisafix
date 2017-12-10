@@ -1,4 +1,4 @@
-<!-- @guest -->
+@guest
 <!DOCTYPE HTML>
 <html>
 
@@ -60,4 +60,4 @@
 	<!-- Bootstrap Core JavaScript -->
    <script src="js/bootstrap.js"> </script>
 </html>
-<!-- @endguest -->
+@endguest

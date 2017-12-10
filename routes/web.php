@@ -21,14 +21,17 @@ Route::get('/', function () {
 });
 
 Route::get('/index', function () {
-    return view('templates.dashboard');
+    $active = 'dashboard';
+    return view('templates.dashboard', compact('active'));
 });
 
-Route::get('/test', function () {
-    return view('templates.tambahpekerja');
-});
+// Route::get('/test', function () {
+//     return view('templates.tambahkaryawan');
+// });
 
-Route::get('/test', 'DashboardController@post')->name('post.pekerja');
+Route::get('/tambah-karyawan', 'DashboardController@post')->name('post.pekerja');
+
+Route::post('/tambah-karyawan', 'TambahUserController@karyawan')->name('tambahuser.karyawan');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

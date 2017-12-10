@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function post(){
-        // $active = 'post';
-        // if(!(Auth::user())){
-        //     return redirect('/');
-        // }
-        // $role = Auth::user()->role;
-        return view('templates.tambahpekerja', compact('active', 'role'));
+        $active = 'post';
+        if(!(Auth::user())){
+            return redirect('/');
+        }
+        $role = Auth::user()->role;
+        return view('templates.tambahkaryawan', compact('active', 'role'));
     }
     //
     // public function beranda(){

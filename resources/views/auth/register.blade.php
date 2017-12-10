@@ -39,6 +39,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                          <label for="nim" class="col-md-4 control-label">NIM</label>
+
+                          <div class="col-md-6">
+                              <input id="nim" type="text" class="form-control" name="nim" value="{{ old('nim') }}" required autofocus>
+
+                              @if ($errors->has('nim'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('nim') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -58,6 +72,12 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <input type="hidden" class="form-control" name="role" value="Administrator" required>
                             </div>
                         </div>
 
