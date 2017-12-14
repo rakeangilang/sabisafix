@@ -1,3 +1,5 @@
+@extends ('templates.dashboard')
+
 <!DOCTYPE HTML>
 <html>
 
@@ -5,9 +7,15 @@
 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
+
+@include('templates.partials._navbar')
+
+@include('templates.partials._header')
+
  <br>
  <br>
  <br>
+
 
 @section('content')
 		<div class="container">
@@ -103,12 +111,6 @@
 		        </div>
 		    </div>
 		</div>
-
-
-
-@include('templates.partials._navbar')
-
-@include('templates.partials._header')
 
 @include('templates.partials._script')
 

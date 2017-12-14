@@ -6,6 +6,9 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Models\TabelKunjungan;
+use App\Models\TabelKomoditas;
+use View;
 
 class DashboardController extends Controller
 {
@@ -15,7 +18,15 @@ class DashboardController extends Controller
             return redirect('/');
         }
         $role = Auth::user()->role;
-        return view('templates.tambahkaryawan', compact('active', 'role'));
+        return view('templates.tambahkaryawan1', compact('active', 'role'));
+    }
+
+    public function index(){
+        $active = 'dashboard';
+        $role = Auth::user()->role;
+        $kunjungans = TabelKunjungan::all();
+
+        return View::make('templates.isi-dashboard')->with('kunjungans', $kunjungans)->with('active', $active)->with('role', $role);
     }
     //
     // public function beranda(){

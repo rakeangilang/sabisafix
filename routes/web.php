@@ -20,17 +20,43 @@ Route::get('/', function () {
     return view('templates.loginadmin');
 });
 
+Route::get('/coba', function () {
+    return view('templates.isi-dashboard');
+});
+
 Route::get('/index', function () {
     $active = 'dashboard';
-    return view('templates.dashboard', compact('active'));
+    
+    return view('templates.isi-dashboard', compact('active'));
 });
+
+
+Route::get('/coba', 'DashboardController@index');
+
+//Route::get('/coba', function () {
+   // $active = 'dashboard';
+   // $role = Auth::user()->role;
+
+   // return view('templates.isi-dashboard', compact('active','role'));
+
 
 // Route::get('/test', function () {
 //     return view('templates.tambahkaryawan');
 // });
 
-Route::get('/tambah-karyawan', 'DashboardController@post')->name('post.pekerja');
+Route::resource('sisabisa', 'SabisaController', ['names' => ['index' => 'sisabisa.index']]);
 
+//Route::Post('/pengunjung/create', 'PengunjungController@store')->name('pengunjung.store');
+Route::resource('pengunjung', 'PengunjungController', ['names' => ['index' => 'pengunjung.index']]);
+
+
+Route::get('histori-stok/{id}', 'HistoriController@show');
+Route::resource('histori-stok', 'HistoriController', ['names' => ['index' => 'histori-stok.index']]);
+
+
+
+Route::get('/tambah-karyawan', 'DashboardController@post')->name('post.pekerja');
+Route::get('/tambah-barang', 'BarangController@post')->name('post.barang');
 Route::post('/tambah-karyawan', 'TambahUserController@karyawan')->name('tambahuser.karyawan');
 
 Auth::routes();

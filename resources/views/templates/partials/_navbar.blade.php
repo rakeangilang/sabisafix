@@ -25,8 +25,7 @@
             <li>
               <a href="#">Stok Barang</a>
             </li>
-            <li>
-              <a href="#">Tambah Barang</a>
+            <li @if ($active == 'post') class="active" @endif><a href="{{ route('post.barang')}}">Tambah Barang</a>
             </li>
           </ul>
           <!-- //nav-second-level -->
