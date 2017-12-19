@@ -23,7 +23,7 @@
                             <td>{{ $kunjungan->nama}}</td>
                             <td>{{ $kunjungan->jumlah}}</td>
                             <td>
-                                <a class="btn btn-info" href="{{ URL::to('pengunjung/' . $kunjungan->id . '/edit')}}">Edit</a>
+                                <a class="btn btn-info" href="{{ URL::to('pengunjung/' . $kunjungan->id . '/edit')}}">Ubah</a>
                             </td>
                         </tr>
                         @endforeach

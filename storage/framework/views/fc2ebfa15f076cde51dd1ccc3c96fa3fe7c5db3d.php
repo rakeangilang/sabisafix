@@ -24,7 +24,7 @@
 </div>
 </div>
 
-    <?php echo e(Form::submit('Edit', array('class' => 'btn btn-primary'))); ?>
+    <?php echo e(Form::submit('Ubah', array('class' => 'btn btn-primary'))); ?>
 
 
 <?php echo e(Form::close()); ?>

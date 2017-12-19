@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('templates.loginadmin');
 });
 
+Route::get('/loginme', function () {
+    return view('coba');
+});
+
 Route::get('/coba', function () {
     return view('templates.isi-dashboard');
 });
@@ -54,9 +58,9 @@ Route::get('histori-stok/{id}', 'HistoriController@show');
 Route::resource('histori-stok', 'HistoriController', ['names' => ['index' => 'histori-stok.index']]);
 
 
-
+Route::resource('daftar-karyawan', 'DashboardController', ['names' => ['show' => 'daftar-karyawan.show']]);
 Route::get('/tambah-karyawan', 'DashboardController@post')->name('post.pekerja');
-Route::get('/tambah-barang', 'BarangController@post')->name('post.barang');
+// Route::get('/tambah-barang', 'BarangController@post')->name('post.barang');
 Route::post('/tambah-karyawan', 'TambahUserController@karyawan')->name('tambahuser.karyawan');
 
 Auth::routes();

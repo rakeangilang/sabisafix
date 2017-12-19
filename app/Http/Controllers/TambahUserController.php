@@ -39,6 +39,6 @@ class TambahUserController extends Controller
           'role' => request('role'),
           'supervisor' => Auth::user()->id,
       ]);
-      return redirect('/tambah-karyawan');
+      return redirect('/coba');
   }
 }

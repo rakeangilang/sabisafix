@@ -6,9 +6,12 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 use App\Models\TabelKunjungan;
 use App\Models\TabelKomoditas;
-use View;
+use View, Session, Redirect;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -24,10 +27,57 @@ class DashboardController extends Controller
     public function index(){
         $active = 'dashboard';
         $role = Auth::user()->role;
-        $kunjungans = TabelKunjungan::all();
+        $terbanyak = DB::table('Komoditas')->max('Stok');
+        $namanya = DB::table('Komoditas')->where('Stok', $terbanyak)->value('Nama');
+        $karyawan = DB::table('users')->count();
 
-        return View::make('templates.isi-dashboard')->with('kunjungans', $kunjungans)->with('active', $active)->with('role', $role);
+        return View::make('templates.isi-dashboard')->with('terbanyak', $terbanyak)->with('karyawan', $karyawan)->with('namanya', $namanya)->with('active', $active)->with('role', $role);
     }
+
+    public function show(){
+        $active = 'tampilin';
+        $role = Auth::user()->role;
+        $karyawans = User::all();
+
+        return View::make('templates.daftarkaryawan')->with('karyawans', $karyawans)->with('active', $active)->with('role', $role);
+    }
+
+    public function edit($id)
+    {
+      $active = 'edit';
+      $role = Auth::user()->role;
+      $karyawan = User::find($id);
+
+      return View::make('templates.aturkaryawan')->with('karyawan', $karyawan)->with('role', $role)->with('active', $active);
+    }
+
+    public function update($id)
+    {
+      $rules = array(
+          'status'      => 'required'
+      );
+
+      $validator = Validator::make(Input::all(), $rules);
+
+      // process the login
+      if ($validator->fails()) {
+          return Redirect::to('sisabisa/' . $id . '/edit')
+              ->withErrors($validator)
+              ->withInput(Input::except('password'));
+      } else {
+          // store
+          $karyawan = User::find($id);
+
+          $karyawan->status = Input::get('status');
+
+          $karyawan->save();
+
+          // redirect
+          Session::flash('message', 'Status Berhasil di Update');
+          return Redirect::to('daftar-karyawan/dashboard');
+    }
+}
+
     //
     // public function beranda(){
     //     $active = 'beranda';

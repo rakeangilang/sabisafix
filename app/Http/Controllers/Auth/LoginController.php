@@ -25,7 +25,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/coba';
+    protected function authenticate()
+    {
+    	if (Auth::attempt(['email' => $email, 'password' => $password, 'status' => 0])) {
+    		return redirect()->intended('/coba');
+		}
+		if (Auth::attempt(['email' => $email, 'password' => $password, 'status' => 1])) {
+    		return View::make('templates.fail');
+		}
+    }
 
     /**
      * Create a new controller instance.

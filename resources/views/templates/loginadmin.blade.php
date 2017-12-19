@@ -38,7 +38,7 @@
 							@endif
 						</div>
 
-							<input type="submit" name="Sign In" value="Sign In">
+							<input type="submit" name="Sign In" value="Sign In" action="/loginme">
 							<div class="forgot-grid">
 								<label class="checkbox"><input type="checkbox" name="checkbox" {{ old('remember') ? 'checked' : '' }}><i></i>Remember me</label>
 								<div class="forgot">

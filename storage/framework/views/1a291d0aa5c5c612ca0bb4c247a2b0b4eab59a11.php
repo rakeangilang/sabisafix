@@ -23,7 +23,7 @@
                             <td><?php echo e($kunjungan->nama); ?></td>
                             <td><?php echo e($kunjungan->jumlah); ?></td>
                             <td>
-                                <a class="btn btn-info" href="<?php echo e(URL::to('pengunjung/' . $kunjungan->id . '/edit')); ?>">Edit</a>
+                                <a class="btn btn-info" href="<?php echo e(URL::to('pengunjung/' . $kunjungan->id . '/edit')); ?>">Ubah</a>
                             </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

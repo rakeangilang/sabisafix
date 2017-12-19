@@ -91,7 +91,7 @@ class PengunjungController extends Controller
               ->withInput(Input::except('password'));
       } else {
           // store
-          $kunjungan = TabelKunjungan($id);
+          $kunjungan = TabelKunjungan::find($id);
 
           $kunjungan->nama = Input::get('nama');
           $kunjungan->jumlah = Input::get('jumlah');

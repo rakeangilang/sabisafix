@@ -20,7 +20,7 @@
 </div>
 </div>
 
-    {{ Form::submit('Edit', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Ubah', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

@@ -7,8 +7,8 @@
   <div class="col-lg-3 col-xs-6">
     <div class="small-box bg-red">
       <div class="inner">
-        <h3>65</h3>
-        <p>Dummy</p>
+        <h3>{{ $terbanyak }}</h3>
+        <p>{{ $namanya }}</p>
       </div>
       <div class="icon">
         <i class="ion ion-pie-graph"></i>
@@ -19,7 +19,7 @@
   <!-- ./col -->
 
   <!-- Pengunjung -->
-  <div class="col-lg-3 col-xs-6">
+<!--   <div class="col-lg-3 col-xs-6">
     <div class="small-box bg-green">
       <div class="inner">
         <h3>53</h3>
@@ -30,15 +30,15 @@
       </div>
       <a class="small-box-footer">Pengujung Terbanyak Bulan ini</a>
     </div>
-  </div>
+  </div> -->
   <!-- ./col -->
 
   <!-- Karyawan Aktif -->
   <div class="col-lg-3 col-xs-6">
     <div class="small-box bg-yellow">
       <div class="inner">
-        <h3>44</h3>
-        <p>Dummy</p>
+        <h3>{{ $karyawan }}</h3>
+        <p>Orang</p>
       </div>
       <div class="icon">
         <i class="ion ion-person-add"></i>

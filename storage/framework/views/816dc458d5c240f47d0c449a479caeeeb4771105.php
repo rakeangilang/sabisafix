@@ -10,9 +10,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a href="#">
+          <a href="<?php echo e(URL::to('/coba')); ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-
           </a>
         </li>
 
@@ -25,9 +24,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo e(route('sisabisa.index')); ?>"><i class="fa fa-circle-o"></i> Lihat Stok</a></li>
+            <li><a href="<?php echo e(route('sisabisa.index')); ?>"><i class="fa fa-circle-o"></i> Ubah Stok</a></li>
             <li><a href="<?php echo e(URL::to('sisabisa/create')); ?>"><i class="fa fa-circle-o"></i> Tambah Stok</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> History Stok</a></li>
+            
           </ul>
         </li>
 
@@ -39,9 +38,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo e(URL::to('pengunjung/create')); ?>"><i class="fa fa-circle-o"></i> Tambah Pengunjung</a></li>
-            <li><a href="<?php echo e(route('pengunjung.index')); ?>"><i class="fa fa-circle-o"></i> Edit Pengunjung</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Grafik Pengunjung</a></li>
+            <li><a href="<?php echo e(URL::to('pengunjung/create')); ?>"><i class="fa fa-circle-o"></i> Tambah Kunjungan</a></li>
+            <li><a href="<?php echo e(route('pengunjung.index')); ?>"><i class="fa fa-circle-o"></i> Lihat Kunjungan</a></li>
+            <!-- <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Grafik Pengunjung</a></li> -->
           </ul>
         </li>
 
@@ -54,7 +53,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Daftar Karyawan</a></li>
+            <li <?php if($active == 'tampilin'): ?> class="active" <?php endif; ?>><a href="<?php echo e(route('daftar-karyawan.show', $active)); ?>"><i class="fa fa-circle-o"></i>Daftar Karyawan</a></li>
             <li <?php if($active == 'post'): ?> class="active" <?php endif; ?>><a href="<?php echo e(route('post.pekerja')); ?>"><i class="fa fa-circle-o"></i>Tambah Karyawan</a></li>
           </ul>
         </li>
